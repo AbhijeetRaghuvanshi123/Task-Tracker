@@ -24,13 +24,13 @@ const TaskForm = ({ onTaskCreated }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validation
     if (!formData.title.trim()) {
       setError('Title is required');
       return;
     }
-    
+
     if (!formData.dueDate) {
       setError('Due date is required');
       return;
@@ -38,11 +38,11 @@ const TaskForm = ({ onTaskCreated }) => {
 
     setLoading(true);
     setError('');
-    
+
     try {
       await onTaskCreated(formData);
       setSuccess('Task created successfully!');
-      
+
       // Reset form
       setFormData({
         title: '',
@@ -50,7 +50,7 @@ const TaskForm = ({ onTaskCreated }) => {
         priority: 'Medium',
         dueDate: '',
       });
-      
+
       // Clear success message after 3 seconds
       setTimeout(() => setSuccess(''), 3000);
     } catch (err) {
@@ -61,11 +61,11 @@ const TaskForm = ({ onTaskCreated }) => {
   };
 
   return (
-    <div className="bg-slate-900 rounded-2xl p-6 shadow-xl border border-slate-800 h-fit">
+    <div className="bg-slate-900 rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-800 h-fit lg:sticky lg:top-8">
       <h2 className="text-xl font-bold text-slate-100 mb-6">Create New Task</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <label htmlFor="title" className="text-sm font-medium text-slate-400 uppercase tracking-wider">Title *</label>
+          <label htmlFor="title" className="text-sm font-medium text-slate-400 uppercase tracking-wider">Title </label>
           <input
             type="text"
             id="title"
@@ -128,8 +128,8 @@ const TaskForm = ({ onTaskCreated }) => {
         {error && <div className="p-3 rounded-lg text-sm font-medium bg-red-400/10 border border-red-500/50 text-red-500">{error}</div>}
         {success && <div className="p-3 rounded-lg text-sm font-medium bg-emerald-400/10 border border-emerald-500/50 text-emerald-500">{success}</div>}
 
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           className="w-full py-3 px-6 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-bold rounded-lg shadow-lg hover:shadow-indigo-500/20 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={loading || !formData.title.trim() || !formData.dueDate}
         >

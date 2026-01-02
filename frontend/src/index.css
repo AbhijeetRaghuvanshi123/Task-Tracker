@@ -25,3 +25,9 @@
 
     --animate-spin-slow: spin 3s linear infinite;
 }
+
+/* Custom Date Picker Icon Color */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(45%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(90%);
+}

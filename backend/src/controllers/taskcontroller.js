@@ -1,13 +1,11 @@
 import Task from '../models/taskmodel.js';
 
-// @desc    Create a new task
-// @route   POST /api/tasks
-// @access  Public
+
 export const createTask = async (req, res) => {
   try {
     const { title, description, priority, dueDate, status } = req.body;
 
-    // Validate required fields
+
     if (!title || !dueDate) {
       return res.status(400).json({
         success: false,
@@ -35,9 +33,7 @@ export const createTask = async (req, res) => {
   }
 };
 
-// @desc    Get all tasks
-// @route   GET /api/tasks
-// @access  Public
+
 export const getAllTasks = async (req, res) => {
   try {
     const tasks = await Task.find().sort({ dueDate: 1 });
@@ -55,9 +51,7 @@ export const getAllTasks = async (req, res) => {
   }
 };
 
-// @desc    Get single task by ID
-// @route   GET /api/tasks/:id
-// @access  Public
+
 export const getTaskById = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -81,9 +75,7 @@ export const getTaskById = async (req, res) => {
   }
 };
 
-// @desc    Update a task
-// @route   PUT /api/tasks/:id
-// @access  Public
+
 export const updateTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -116,9 +108,7 @@ export const updateTask = async (req, res) => {
   }
 };
 
-// @desc    Delete a task
-// @route   DELETE /api/tasks/:id
-// @access  Public
+
 export const deleteTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);

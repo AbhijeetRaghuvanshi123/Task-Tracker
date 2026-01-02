@@ -14,7 +14,7 @@ import {
 
 const router = express.Router();
 
-// Task routes
+
 router.route('/')
   .get(getAllTasks)
   .post(validateCreateTask, handleValidationErrors, createTask);

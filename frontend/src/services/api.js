@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
-// Create axios instance with default config
+
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -10,7 +10,7 @@ const api = axios.create({
   },
 });
 
-// Response interceptor for error handling
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -20,7 +20,7 @@ api.interceptors.response.use(
   }
 );
 
-// Fetch all tasks
+
 export const fetchTasks = async () => {
   try {
     const response = await api.get('/tasks');
@@ -31,7 +31,7 @@ export const fetchTasks = async () => {
   }
 };
 
-// Create a new task
+
 export const createTask = async (taskData) => {
   try {
     const response = await api.post('/tasks', taskData);
@@ -42,7 +42,7 @@ export const createTask = async (taskData) => {
   }
 };
 
-// Update a task
+
 export const updateTask = async (id, taskData) => {
   try {
     const response = await api.put(`/tasks/${id}`, taskData);
@@ -53,7 +53,7 @@ export const updateTask = async (id, taskData) => {
   }
 };
 
-// Delete a task
+
 export const deleteTask = async (id) => {
   try {
     const response = await api.delete(`/tasks/${id}`);

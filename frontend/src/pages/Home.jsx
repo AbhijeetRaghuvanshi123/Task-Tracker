@@ -9,7 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('All');
 
-  // Fetch tasks on component mount
+
   useEffect(() => {
     loadTasks();
   }, []);
@@ -42,7 +42,7 @@ const Home = () => {
   const handleToggleStatus = async (id, newStatus) => {
     try {
       const updatedTask = await updateTask(id, { status: newStatus });
-      setTasks(prev => 
+      setTasks(prev =>
         prev.map(task => task._id === id ? updatedTask : task)
       );
       toast.success(`Task marked as ${newStatus.toLowerCase()}`);
@@ -97,7 +97,7 @@ const Home = () => {
           },
         }}
       />
-      
+
       <header className="text-center mb-12 animate-fade-in">
         <h1 className="text-5xl font-extrabold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent mb-2">
           Task Tracker
@@ -105,7 +105,7 @@ const Home = () => {
         <p className="text-slate-400 text-lg">Organize your daily tasks efficiently</p>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[350px_1fr] xl:grid-cols-[400px_1fr] gap-6 lg:gap-8 items-start">
         <TaskForm onTaskCreated={handleCreateTask} />
         <TaskList
           tasks={tasks}
