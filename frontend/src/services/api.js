@@ -24,7 +24,7 @@ api.interceptors.response.use(
 
 export const fetchTasks = async () => {
   try {
-    const response = await api.get('/tasks');
+    const response = await api.get('/api/tasks');
     return response.data.data;
   } catch (error) {
     console.error('Error fetching tasks:', error);
@@ -35,7 +35,7 @@ export const fetchTasks = async () => {
 
 export const createTask = async (taskData) => {
   try {
-    const response = await api.post('/tasks', taskData);
+    const response = await api.post('/api/tasks', taskData);
     return response.data.data;
   } catch (error) {
     console.error('Error creating task:', error);
@@ -46,7 +46,7 @@ export const createTask = async (taskData) => {
 
 export const updateTask = async (id, taskData) => {
   try {
-    const response = await api.put(`/tasks/${id}`, taskData);
+    const response = await api.put(`/api/tasks/${id}`, taskData);
     return response.data.data;
   } catch (error) {
     console.error('Error updating task:', error);
@@ -57,7 +57,7 @@ export const updateTask = async (id, taskData) => {
 
 export const deleteTask = async (id) => {
   try {
-    const response = await api.delete(`/tasks/${id}`);
+    const response = await api.delete(`/api/tasks/${id}`);
     return response.data;
   } catch (error) {
     console.error('Error deleting task:', error);
