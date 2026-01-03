@@ -8,6 +8,9 @@ const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('All');
+  const [priorityFilter, setPriorityFilter] = useState('All');
+  const [sortBy, setSortBy] = useState('newest');
+  const [searchQuery, setSearchQuery] = useState('');
 
 
   useEffect(() => {
@@ -113,6 +116,12 @@ const Home = () => {
           onDelete={handleDeleteTask}
           filter={filter}
           onFilterChange={setFilter}
+          priorityFilter={priorityFilter}
+          onPriorityChange={setPriorityFilter}
+          sortBy={sortBy}
+          onSortChange={setSortBy}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
         />
       </div>
     </div>
