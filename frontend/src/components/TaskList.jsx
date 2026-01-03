@@ -36,12 +36,12 @@ const TaskList = ({
   return (
     <div className="bg-slate-900 rounded-2xl p-6 shadow-xl border border-slate-800">
       <div className="space-y-6 mb-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-100">
             My Tasks <span className="text-slate-500 text-lg">({filteredTasks.length})</span>
           </h2>
 
-          <div className="w-full md:w-64 relative">
+          <div className="w-full sm:w-64 relative">
             <input
               type="text"
               placeholder="Search tasks..."
@@ -55,14 +55,14 @@ const TaskList = ({
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-4 items-center justify-between border-t border-slate-800/50 pt-6">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between border-t border-slate-800/50 pt-6">
+          <div className="flex flex-col xs:flex-row items-start xs:items-center gap-3">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Status:</span>
-            <div className="flex gap-1 bg-slate-950 p-1 rounded-lg">
+            <div className="flex gap-1 bg-slate-950 p-1 rounded-lg w-full xs:w-auto overflow-x-auto no-scrollbar">
               {['All', 'Pending', 'Completed'].map((tab) => (
                 <button
                   key={tab}
-                  className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all whitespace-nowrap ${filter === tab
+                  className={`flex-1 xs:flex-none px-3 py-1.5 text-sm font-medium rounded-md transition-all whitespace-nowrap ${filter === tab
                     ? 'bg-indigo-600 text-white shadow-lg'
                     : 'text-slate-400 hover:text-slate-100'
                     }`}
@@ -74,13 +74,13 @@ const TaskList = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2 xs:gap-3 flex-1 sm:flex-none">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Priority:</span>
               <select
                 value={priorityFilter}
                 onChange={(e) => onPriorityChange(e.target.value)}
-                className="bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-sm text-slate-100 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all"
+                className="w-full xs:w-auto bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-sm text-slate-100 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all"
               >
                 <option value="All">All Priority</option>
                 <option value="Low">Low</option>
@@ -89,12 +89,12 @@ const TaskList = ({
               </select>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2 xs:gap-3 flex-1 sm:flex-none">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Sort:</span>
               <select
                 value={sortBy}
                 onChange={(e) => onSortChange(e.target.value)}
-                className="bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-sm text-slate-100 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all"
+                className="w-full xs:w-auto bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-sm text-slate-100 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all"
               >
                 <option value="newest">Newest First</option>
                 <option value="oldest">Oldest First</option>

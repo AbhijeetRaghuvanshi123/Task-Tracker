@@ -101,11 +101,11 @@ const Home = () => {
         }}
       />
 
-      <header className="text-center mb-12 animate-fade-in">
-        <h1 className="text-5xl font-extrabold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent mb-2">
+      <header className="text-center mb-8 sm:mb-12 animate-fade-in">
+        <h1 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent mb-2">
           Task Tracker
         </h1>
-        <p className="text-slate-400 text-lg">Organize your daily tasks efficiently</p>
+        <p className="text-slate-400 text-base sm:text-lg">Organize your daily tasks efficiently</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-[350px_1fr] xl:grid-cols-[400px_1fr] gap-6 lg:gap-8 items-start">

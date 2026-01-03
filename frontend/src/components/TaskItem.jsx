@@ -36,7 +36,7 @@ const TaskItem = ({ task, onToggleStatus, onDelete }) => {
 
   return (
     <div className="p-4 sm:p-5 rounded-xl bg-slate-950 border border-slate-800 transition-all duration-300 flex flex-col gap-3 sm:gap-4 group hover:border-indigo-500/50">
-      <div className="flex flex-col xs:flex-row justify-between items-start gap-2 sx:gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-4">
         <h3 className={`text-base sm:text-lg font-semibold text-slate-100 flex-1 leading-tight break-words w-full ${task.status === 'Completed' ? 'line-through text-slate-500' : ''}`}>
           {task.title}
         </h3>
