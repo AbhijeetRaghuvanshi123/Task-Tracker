@@ -1,9 +1,19 @@
 import React from 'react';
-import { format, formatDistanceToNow, isPast } from 'date-fns';
+import { format, formatDistanceToNow, isPast, isValid } from 'date-fns';
 
 const TaskItem = ({ task, onToggleStatus, onDelete }) => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
+    
+    // Check if the date is valid
+    if (!isValid(date)) {
+      return { 
+        formatted: 'Invalid date', 
+        relative: 'N/A', 
+        isOverdue: false 
+      };
+    }
+    
     const formatted = format(date, 'MMM dd, yyyy');
     const relative = formatDistanceToNow(date, { addSuffix: true });
     const isOverdue = isPast(date) && task.status === 'Pending';
